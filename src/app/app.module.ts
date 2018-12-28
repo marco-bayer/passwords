@@ -1,3 +1,4 @@
+import { PasswordListState } from './password-list/password-list.state';
 import { environment } from './../environments/environment';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -9,6 +10,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PasswordListComponent } from './password-list/password-list.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent, PasswordListComponent],
@@ -16,7 +18,9 @@ import { PasswordListComponent } from './password-list/password-list.component';
     BrowserModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot([
+      PasswordListState
+    ], {
       developmentMode: !environment.production
     }),
     NgxsLoggerPluginModule.forRoot({
@@ -24,7 +28,8 @@ import { PasswordListComponent } from './password-list/password-list.component';
     }),
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: environment.production
-    })
+    }),
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
