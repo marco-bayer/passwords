@@ -11,11 +11,13 @@ export class PasswordListStateModel {
   defaults: {
     list: [
       {
+        id: 1,
         website: 'www.ebay.com',
         username: 'spock_e',
         password: 'sup3rs3cr3t!'
       },
       {
+        id: 2,
         website: 'www.amazon.de',
         username: 'marco-bayer@gmx.de',
         password: 'n0ts0s3cr3t?'

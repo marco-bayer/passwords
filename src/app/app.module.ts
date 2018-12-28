@@ -11,9 +11,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PasswordListComponent } from './password-list/password-list.component';
 import {MatListModule} from '@angular/material/list';
+import { PasswordDetailComponent } from './password-detail/password-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, PasswordListComponent],
+  declarations: [AppComponent, PasswordListComponent, PasswordDetailComponent],
   imports: [
     BrowserModule,
     FlexLayoutModule,
