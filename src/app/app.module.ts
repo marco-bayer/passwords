@@ -1,4 +1,4 @@
-import { PasswordListState } from './password-list/password-list.state';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { environment } from './../environments/environment';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -9,19 +9,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { PasswordListComponent } from './password-list/password-list.component';
-import {MatListModule} from '@angular/material/list';
-import { PasswordDetailComponent } from './password-detail/password-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PasswordsModule } from './passwords/passwords.module';
+import { PasswordsState } from './passwords/passwords.state';
 
 @NgModule({
-  declarations: [AppComponent, PasswordListComponent, PasswordDetailComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    NgxsModule.forRoot([
-      PasswordListState
-    ], {
+    NgxsModule.forRoot([PasswordsState], {
       developmentMode: !environment.production
     }),
     NgxsLoggerPluginModule.forRoot({
@@ -30,9 +28,10 @@ import { PasswordDetailComponent } from './password-detail/password-detail.compo
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: environment.production
     }),
-    MatListModule
+    PasswordsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

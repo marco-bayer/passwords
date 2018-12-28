@@ -1,9 +1,9 @@
+import { PasswordEntity } from 'src/app/model/password-entity.model';
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { LoadPasswords } from './password-list.action';
-import { PasswordListState } from './password-list.state';
+import { LoadPasswords } from '../passwords.actions';
+import { PasswordsState } from '../passwords.state';
 import { Observable } from 'rxjs';
-import { PasswordEntity } from '../model/password-entity.model';
 
 @Component({
   selector: 'app-password-list',
@@ -12,12 +12,11 @@ import { PasswordEntity } from '../model/password-entity.model';
 })
 export class PasswordListComponent implements OnInit {
 
-  @Select(PasswordListState.passwords) passwords$: Observable<PasswordEntity[]>;
+  @Select(PasswordsState.passwords) passwords$: Observable<PasswordEntity[]>;
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.store.dispatch(new LoadPasswords());
   }
-
 }
