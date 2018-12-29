@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { PasswordEntity } from 'src/app/model/password-entity.model';
-import { tap, withLatestFrom } from 'rxjs/operators';
 import { PasswordsState } from '../passwords.state';
 
 @Component({
